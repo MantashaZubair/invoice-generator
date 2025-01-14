@@ -52,7 +52,7 @@ export default function InvoiceTable({
   const [deleteItemId, setDeleteItemId] = useState<string | null>(null);
   const router=useRouter()
    // Use ref to detect clicks outside of the dropdown
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
   const toggleDropdown = (id: string) => {
     setShowDropdown((prevId) => (prevId === id ? null : id));
   };
