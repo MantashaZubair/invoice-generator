@@ -208,7 +208,7 @@
 
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
-import { InvoiceData } from "@/types/invoice";
+import { InvoiceData } from "../../types/invoice";
 import { formatCurrency } from "./format-currency";
 
 export async function generateInvoicePDF(invoice: InvoiceData): Promise<Blob> {
