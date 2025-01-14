@@ -6,7 +6,7 @@ export const registerSchema=Yup.object({
     password: Yup.string().required("password is required  *"),
     confirmPassword: Yup.string()
       .required("Confirm Password is required *")
-      .oneOf([Yup.ref("password")], "Password and Confirm Password doesn't match"),,
+      .oneOf([Yup.ref("password")], "Password and Confirm Password doesn't match"),
     
     })
 
