@@ -1,3 +1,10 @@
+export interface InvoiceItem {
+  id: string;
+  description: string;
+  quantity: number;
+  rate: number;
+  amount: number;
+}
 export interface InvoiceData {
   _id: string,
   userId:string,
@@ -29,13 +36,7 @@ export interface InvoiceData {
     poNumber: string;
     currency: string;
   };
-  items: Array<{
-    id: string;
-    description: string;
-    quantity: number;
-    rate: number;
-    amount: number;
-  }>;
+  items: InvoiceItem[];
   totals: {
     subtotal: number;
     tax: number;
