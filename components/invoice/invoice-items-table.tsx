@@ -34,7 +34,7 @@ const InvoiceItemsTable= memo(({ items, currency, onUpdateItems , formErrors,for
       description: "",
       quantity: 1,
       rate: 0,
-      amount: "",
+      amount: 0,
     };
     onUpdateItems([...items, newItem]);
   }, [items, onUpdateItems]);
@@ -51,7 +51,7 @@ const InvoiceItemsTable= memo(({ items, currency, onUpdateItems , formErrors,for
       description: "",
       quantity: 1,
       rate: 0,
-      amount: "",
+      amount: 0,
     }));
     onUpdateItems([...items, ...newItems]);
   }, [items, onUpdateItems]);
