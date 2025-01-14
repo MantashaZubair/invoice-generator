@@ -4,9 +4,11 @@ export const registerSchema=Yup.object({
     // lastName:Yup.string(),
     email: Yup.string().email().required("email is required  *"),
     password: Yup.string().required("password is required  *"),
-    confirmPassword : Yup.string().required("Confirm Password is required  *").oneOf([Yup.ref("password"), null], "Password and Confirm Password doesn't match"),
-
-})
+    confirmPassword: Yup.string()
+      .required("Confirm Password is required *")
+      .oneOf([Yup.ref("password")], "Password and Confirm Password doesn't match"),,
+    
+    })
 
 // login user Shema
 export const loginSchema=Yup.object({
