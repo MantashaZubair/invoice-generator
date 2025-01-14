@@ -254,9 +254,13 @@ export function useInvoice(initialData?: InvoiceData) {
     }
   }, [user?.user._id, formik.setFieldValue]);
 
-  const generatePDF = useCallback(async () =>{
+  const generatePDF = useCallback(async () => {
     try {
-      const pdfBlob = await generateInvoicePDF(formik.values);
+      const invoiceDataWithId = {
+        ...formik.values,
+        _id: initialData?._id || 'dummy-id', // Add a dummy or real _id here
+      };
+      const pdfBlob = await generateInvoicePDF(invoiceDataWithId);
       const url = URL.createObjectURL(pdfBlob);
       const link = document.createElement('a');
       link.href = url;
@@ -268,7 +272,7 @@ export function useInvoice(initialData?: InvoiceData) {
     } catch (error) {
       console.error('Error generating PDF:', error);
     }
-  }, [formik.values]);;
+  }, [formik.values, initialData]);
 
   // Update functions that work with formik
   const updateSenderDetails = useCallback((details: typeof initialInvoiceData.senderDetails) => {
