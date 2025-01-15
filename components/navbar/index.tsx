@@ -43,7 +43,7 @@ const NavBar: FC = () => {
     try {
       const refreshToken = Cookies.get("refreshToken");
       const response = await axios.post(
-        "${process.env.server}/api/v1/user/logout",
+        `${process.env.server}/api/v1/user/logout`,
         {},
         {
           headers: {
