@@ -24,7 +24,7 @@ export default function ViewPage() {
   const fetchInvoice = async () => {
     try {
       const response = await axios.get(
-        `${process.env.server}/api/v1/invoice/invoices/${id}`
+        `${process.env.NEXT_PUBLIC_SERVER}/api/v1/invoice/invoices/${id}`
       );
       const data = response.data;
       setInvoiceItem(data);
