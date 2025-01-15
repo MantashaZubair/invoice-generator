@@ -29,7 +29,7 @@ export default function SignUpPage() {
        onSubmit:async(values,{ resetForm })=>{
         console.log('Form Submitted',values)
         try {
-          const response= await axios.post(`http://localhost:8002/api/v1/user/registration`,values, { withCredentials: true })
+          const response= await axios.post(`${process.env.server}/api/v1/user/registration`,values, { withCredentials: true })
           if(response.data  && response.data.success===true){
             setServerSuccessMessage("register successfull")
             setServerErrorMessage('')
@@ -51,7 +51,7 @@ export default function SignUpPage() {
   })
   const handleGoogleLogin =async()=>{
     window.open(
-      `http://localhost:8002/auth/google`,
+      `${process.env.server}/auth/google`,
       "_self"
     );
   }
