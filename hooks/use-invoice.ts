@@ -132,8 +132,8 @@ export function useInvoice(initialData?: InvoiceData) {
       try {
         const isEditing = !!initialData;
         const url = isEditing 
-          ? `${process.env.server}/api/v1/invoice/invoices/${initialData._id}`
-          : `${process.env.server}/api/v1/invoice/invoices`;
+          ? `${process.env.NEXT_PUBLIC_SERVER}/api/v1/invoice/invoices/${initialData._id}`
+          : `${process.env.NEXT_PUBLIC_SERVER}/api/v1/invoice/invoices`;
         
         const method = isEditing ? 'put' : 'post';
 
@@ -229,7 +229,7 @@ export function useInvoice(initialData?: InvoiceData) {
 
     try {
       const response = await axios.get(
-        `${process.env.server}/api/v1/invoice/invoices/userId/${user.user._id}`
+        `${process.env.NEXT_PUBLIC_SERVER}/api/v1/invoice/invoices/userId/${user.user._id}`
       );
       const invoices = response.data;
       let newInvoiceNumber = "INV-0001";
