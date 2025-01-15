@@ -31,7 +31,7 @@ export default function LoginPage() {
       try {
         console.log('Form submitted:', values);
         // Handle form submission (e.g., API call)
-        const response = await axios.post(`http://localhost:8002/api/v1/user/login`,values,{withCredentials:true})
+        const response = await axios.post(`${process.env.server}/api/v1/user/login`,values,{withCredentials:true})
         console.log(response)
         if(response.data  && response.data.message=== "loginSuccessfull"){
           setServerSuccessMessage(response.data.message)
@@ -64,7 +64,7 @@ export default function LoginPage() {
 
   const handleGoogleLogin =async()=>{
     window.open(
-      `http://localhost:8002/auth/google`,
+      `${process.env.server}/auth/google`,
       "_self"
     );
   }
