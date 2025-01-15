@@ -27,7 +27,7 @@ export const UserProvider = ({ children }:{children: React.ReactNode}) => {
   const fetchUserProfile = async () => {
     try {
       // const accessToken = Cookies.get("accessToken");
-      const response = await axios.get(`${process.env.server}/api/v1/user/me`, {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER}/api/v1/user/me`, {
         // headers: {
         //   Authorization: `Bearer ${accessToken}`,
         // },
