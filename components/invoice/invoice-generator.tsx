@@ -24,7 +24,7 @@ export default function InvoiceGenerator({ invoiceId }: { invoiceId?: string }) 
       if (invoiceId) {
         try {
           const response = await axios.get<InvoiceData>(
-            `${process.env.server}/api/v1/invoice/invoices/${invoiceId}`,
+            `${process.env.NEXT_PUBLIC_SERVER}/api/v1/invoice/invoices/${invoiceId}`,
             { withCredentials: true }
           );
           setInitialData(response.data);
