@@ -31,7 +31,7 @@ export default function LoginPage() {
       try {
         console.log('Form submitted:', values);
         // Handle form submission (e.g., API call)
-        const response = await axios.post(`${process.env.server}/api/v1/user/login`,values,{withCredentials:true})
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER}/api/v1/user/login`,values,{withCredentials:true})
         console.log(response)
         if(response.data  && response.data.message=== "loginSuccessfull"){
           setServerSuccessMessage(response.data.message)
