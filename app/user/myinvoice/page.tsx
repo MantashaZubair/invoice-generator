@@ -20,7 +20,7 @@ export default function MyInvoice() {
     try {
       setIsLoading(true);
       const response = await axios.get(
-        `${process.env.server}/api/v1/invoice/invoices/userId/${user.user._id}`
+        `${process.env.NEXT_PUBLIC_SERVER}/api/v1/invoice/invoices/userId/${user.user._id}`
       );
       setInvoiceItem(response.data);
     } catch (error) {
@@ -48,7 +48,7 @@ export default function MyInvoice() {
   const handleDelete = useCallback(async (id: string) => {
     try {
       // Delete the invoice on the backend
-      const response = await axios.delete(`${process.env.server}/api/v1/invoice/invoices/${id}`);
+      const response = await axios.delete(`${process.env.NEXT_PUBLIC_SERVER}/api/v1/invoice/invoices/${id}`);
       // if (response.status === 200) {
       //   console.log("Invoice deleted successfully");
       // } else {
