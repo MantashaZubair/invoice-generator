@@ -24,7 +24,7 @@ export default function Edit(){
     const generateInvoiceNumber = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8002/api/v1/invoice/invoices/userId/${user?.user._id}`
+          `${process.env.server}/api/v1/invoice/invoices/userId/${user?.user._id}`
         );
         const invoices = response.data; // Assuming this is an array
         console.log(invoices);
