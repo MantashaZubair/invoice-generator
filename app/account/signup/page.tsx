@@ -29,7 +29,7 @@ export default function SignUpPage() {
        onSubmit:async(values,{ resetForm })=>{
         console.log('Form Submitted',values)
         try {
-          const response= await axios.post(`${process.env.server}/api/v1/user/registration`,values, { withCredentials: true })
+          const response= await axios.post(`${process.env.NEXT_PUBLIC_SERVER}/api/v1/user/registration`,values, { withCredentials: true })
           if(response.data  && response.data.success===true){
             setServerSuccessMessage("register successfull")
             setServerErrorMessage('')
