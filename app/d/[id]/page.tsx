@@ -24,7 +24,7 @@ export default function ViewPage() {
   const fetchInvoice = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8002/api/v1/invoice/invoices/${id}`
+        `${process.env.server}/api/v1/invoice/invoices/${id}`
       );
       const data = response.data;
       setInvoiceItem(data);
@@ -100,7 +100,7 @@ export default function ViewPage() {
     const newStatus = currentStatus === "Paid" ? "pending" : "Paid";
 
     try {
-        const response = await fetch(`http://localhost:8002/api/v1/invoice/invoices/${id}/status`, {
+        const response = await fetch(`${process.env.server}/api/v1/invoice/invoices/${id}/status`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
