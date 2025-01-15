@@ -48,7 +48,7 @@ export default function MyAccount() {
         };
 
         // Profile update
-        const profileUpdateUrl = `http://localhost:8002/api/v1/user/me/${user?.user?._id}`;
+        const profileUpdateUrl = `${process.env.server}/api/v1/user/me/${user?.user?._id}`;
         const profileResponse = await axios.put(
           profileUpdateUrl,
           {
@@ -63,14 +63,14 @@ export default function MyAccount() {
         if (values.avatar) {
           const avatarFormData = new FormData();
           avatarFormData.append("avatar", values.avatar);
-          const avatarUpdateUrl = `http://localhost:8002/api/v1/user/me/${user?.user?._id}/avatar`;
+          const avatarUpdateUrl = `${process.env.server}/api/v1/user/me/${user?.user?._id}/avatar`;
           await axios.put(avatarUpdateUrl, avatarFormData, headers);
         }
 
         if (values.logo) {
           const logoFormData = new FormData();
           logoFormData.append("logo", values.logo);
-          const logoUpdateUrl = `http://localhost:8002/api/v1/user/me/${user?.user?._id}/logo`;
+          const logoUpdateUrl = `${process.env.server}/api/v1/user/me/${user?.user?._id}/logo`;
           await axios.put(logoUpdateUrl, logoFormData, headers);
         }
 
@@ -92,7 +92,7 @@ export default function MyAccount() {
   const handleDelete = async () => {
     try {
       const accessToken = Cookies.get("accessToken");
-      const deleteUrl = `http://localhost:8002/api/v1/user/me/${user?.user?._id}`;
+      const deleteUrl = `${process.env.server}/api/v1/user/me/${user?.user?._id}`;
       const response = await axios.delete(deleteUrl, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
